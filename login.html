@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tizimga kirish - IshTop Pro</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-header">
+                <a href="index.html" class="logo">Ish<span>Top</span> <div class="neon-dot"></div></a>
+                <h2 id="formaSarlavha">Tizimga kirish</h2>
+                <p id="formaMatn">E'lon berish va boshqarish uchun profilingizga kiring</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="kirishTabBtn">Kirish</button>
+                <button class="tab-btn" id="royxatTabBtn">Ro'yxatdan o'tish</button>
+            </div>
+
+            <form id="authForma">
+                <div class="form-group" id="ismGroup" style="display: none;">
+                    <label><i class="fa-solid fa-user"></i> F.I.O. (Ism Familiya)</label>
+                    <input type="text" id="foydalanuvchiIsm" placeholder="Azizbek Karimov">
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-envelope"></i> Elektron pochta</label>
+                    <input type="email" id="authEmail" required placeholder="admin@ishtop.uz">
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-lock"></i> Parol</label>
+                    <input type="password" id="authParol" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-primary full-width" id="submitBtn">Kirish</button>
+            </form>
+
+            <div class="login-footer">
+                <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Bosh sahifaga qaytish</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

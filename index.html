@@ -1,255 +1,393 @@
- <!DOCTYPE html>
-<html lang="uz">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUTOVERSE</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IshTop Pro - Premium Ish Qidirish Portali</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
 
-  <header>
-    <div class="logo">AUTOVERSE</div>
-    <div class="nav-tabs">
-      <button id="btnAll" class="tab-btn active">Barchasi</button>
-      <button id="btnCars" class="tab-btn">Sportkarlar</button>
-      <button id="btnMotos" class="tab-btn">Motosiklar</button>
-      <button id="btnSuvs" class="tab-btn">Yo'l Tanlamaslar</button>
-      <button id="btnElectrCars" class="tab-btn">Elektrmobillar</button>
-      <button id="btnClassicCars" class="tab-btn">Klassik</button>
-      <button id="btnCompare" class="tab-btn compare-tab-btn" onclick="openCompareModal()" style="border-color: var(--gold); color: var(--gold-light); cursor: pointer;">
-  ⚖️ Solishtirish (<span id="compareCount">0</span>)</button>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Ish<span>Top</span> <div class="neon-dot"></div></a>
+            <nav class="nav-links">
+                <a href="#" class="active">Bosh sahifa</a>
+                <a href="#vakansiyalar">Vakansiyalar</a>
+                <a href="#kompaniyalar">Kompaniyalar</a>
+                <a href="#sharhlar">Sharhlar</a>
+                <a href="#" id="saqlanganlarHavolasi"><i class="fa-solid fa-bookmark"></i> Saqlanganlar (<span id="saqlanganlarSoni">0</span>)</a>
+            </nav>
+            <div class="nav-auth-box">
+                <a href="login.html" class="btn-login-header"><i class="fa-solid fa-user"></i> Kirish</a>
+                <button class="btn-primary neon-btn" id="elonQoshishTugma"><i class="fa-solid fa-plus"></i> E'lon berish</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="container hero-content">
+            <span class="hero-badge">⚡️ Kelajak kasblari shu yerda boshlanadi</span>
+            <h1>Orzuingizdagi IT va zamonaviy ishlarni toping</h1>
+            <p>O'zbekistondagi eng yirik ilg'or kompaniyalar va masofaviy loyihalar sizni kutmoqda</p>
+            
+            <div class="search-box">
+                <div class="search-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="qidiruvInput" placeholder="Kasb, mutaxassislik...">
+                </div>
+                <div class="search-input">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" id="hududInput" placeholder="Shahar yoki Masofaviy">
+                </div>
+                <button class="btn-search" id="qidiruvTugma">Izlash</button>
+            </div>
+            
+            <div class="hero-tags">
+                <span>Ommabop:</span>
+                <a href="#" onclick="tezkorQidiruv('Frontend')">Frontend</a>
+                <a href="#" onclick="tezkorQidiruv('Python')">Python</a>
+                <a href="#" onclick="tezkorQidiruv('UI/UX')">UI/UX</a>
+                <a href="#" onclick="tezkorQidiruv('Marketing')">Marketing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistika -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-card animate-on-scroll">
+                <h3 class="counter" data-target="2150">0</h3>
+                <p>Faol Vakansiyalar</p>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <h3 class="counter" data-target="740">0</h3>
+                <p>Hamkor Kompaniyalar</p>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <h3 class="counter" data-target="31000">0</h3>
+                <p>Ish topganlar</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Kompaniyalar -->
+    <section class="container section animate-on-scroll" id="kompaniyalar">
+        <div class="section-title-center">
+            <h2>Yetakchi Hamkor Kompaniyalar</h2>
+ <p>Biz bilan hamkorlik qiluvchi top darajadagi brendlar</p>
+        </div>
+        <div class="companies-grid">
+            <div class="company-logo-card animate-on-scroll">
+                <i class="fa-solid fa-cube"></i>
+                <h4>TechCorp</h4>
+                <span>45 ta ochiq o'rin</span>
+            </div>
+            <div class="company-logo-card animate-on-scroll">
+                <i class="fa-solid fa-bolt"></i>
+                <h4>PayNext</h4>
+                <span>28 ta ochiq o'rin</span>
+            </div>
+            <div class="company-logo-card animate-on-scroll">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h4>CloudUz</h4>
+                <span>19 ta ochiq o'rin</span>
+            </div>
+            <div class="company-logo-card animate-on-scroll">
+                <i class="fa-solid fa-rocket"></i>
+                <h4>SoftLine</h4>
+                <span>32 ta ochiq o'rin</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategoriyalar -->
+    <section class="container section animate-on-scroll" id="kategoriyalar">
+        <div class="section-title-center">
+            <h2>Sohalar bo'yicha ko'rib chiqish</h2>
+            <p>O'zingizga mos yo'nalishni tanlang</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card animate-on-scroll" data-category="IT">
+                <div class="cat-icon"><i class="fa-solid fa-code"></i></div>
+                <h3>Dasturlash va IT</h3>
+                <p>620+ bo'sh ish o'rni</p>
+            </div>
+            <div class="category-card animate-on-scroll" data-category="Dizayn">
+                <div class="cat-icon"><i class="fa-solid fa-palette"></i></div>
+                <h3>UI/UX va Dizayn</h3>
+                <p>210+ bo'sh ish o'rni</p>
+            </div>
+            <div class="category-card animate-on-scroll" data-category="Marketing">
+                <div class="cat-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                <h3>Marketing & SMM</h3>
+                <p>340+ bo'sh ish o'rni</p>
+            </div>
+            <div class="category-card animate-on-scroll" data-category="Moliya">
+                <div class="cat-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                <h3>Moliya va Analitika</h3>
+                <p>190+ bo'sh ish o'rni</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vakansiyalar -->
+    <section class="container section animate-on-scroll" id="vakansiyalar">
+        <div class="section-header">
+            <div>
+                <h2>So'nggi Vakansiyalar</h2>
+                <p style="color: var(--text-muted); font-size: 14px;">Ish turlari bo'yicha filtrlang va o'zingizga mosini toping</p>
+            </div>
+            <div class="filter-buttons">
+                <select id="turFiltri" class="filter-select">
+                    <option value="">Barcha ish turlari</option>
+                    <option value="To'liq stavka">To'liq stavka</option>
+                    <option value="Yarim stavka">Yarim stavka</option>
+                    <option value="Kontrakt">Kontrakt</option>
+                </select>
+                <button class="btn-outline" id="filtrniTozalashTugma">Filtrni tozalash</button>
+            </div>
+        </div>
+        
+        <div class="jobs-grid" id="jobsContainer"></div>
+        <div class="pagination" id="paginationContainer"></div>
+    </section>
+
+    <!-- Sharhlar -->
+     <section class="container section animate-on-scroll" id="sharhlar">
+    <div class="section-title-center">
+        <h2>Mutaxassislar nima deyishadi?</h2>
+        <p>Bizning portal orqali ish topgan foydalanuvchilarimiz fikrlari</p>
     </div>
-
-    
-
-  </header>
-
-  
-  <section class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="car4k.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-subtitle">Tezlik va Mukammallik</div>
-      <h1 class="hero-title">Orzuyingizdagi Moshinalar Bu Yerda</h1>
-    </div>
-  </section>
-
-  <div class="filter-bar">
-    <input type="text" id="searchInput" class="search-input" placeholder="Model, marka yoki xarakteristika bo'yicha qidiring...">
-  </div>
-
-  <main class="container">
-    <div class="grid-header">
-      <h2 class="section-title" id="categoryTitle">Barcha Avtomobillar</h2>
-    </div>
-    <div class="vehicles-grid" id="vehiclesGrid"></div>
-  </main>
-
-  
-  <div id="vipModal" class="vip-modal-overlay">
-    <div class="vip-modal-content">
-      
-      <button class="vip-close-btn" onclick="closeVehicleDetails()">&times;</button>
-
-      <div class="vip-card-wrapper">
-        <div class="vip-media-box">
-          <div class="image-overlay-gradient"></div>
-          <img id="carImage" src="" alt="VIP Vehicle">
-          <span id="carCategory" class="vip-badge">VIP EDITION</span>
-          <div class="badge-glow"></div>
+    <div class="testimonials-grid">
+        <!-- 1-sharh -->
+        <div class="testimonial-card animate-on-scroll">
+            <div class="user-info">
+                <div class="user-avatar">AK</div>
+                <div>
+                    <h4>Azizbek Karimov</h4>
+                    <p>Senior Frontend Developer</p>
+                </div>
+            </div>
+            <p class="comment">"IshTop orqali atigi 3 kunda o'zimga mos kompaniya topdim. Intervyudan o'tib, hozirda masofaviy ishlayapman!"</p>
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
         </div>
 
-        <div class="vip-info-box">
-          <div class="vip-header">
-            <span class="subtitle">EXCLUSIVE SHOWCASE</span>
-            <h1 id="carTitle" class="vip-title">---</h1>
-            <div id="carPrice" class="vip-price">$0</div>
-          </div>
-
-          <p id="carDesc" class="vip-desc">...</p>
-
-          <div class="vip-specs-grid">
-            <div class="spec-tile">
-              <div class="tile-icon">⚡️</div>
-              <div class="tile-content">
-                <span class="label">Yili</span>
-                <span id="carYear" class="value">---</span>
-              </div>
+        <!-- 2-sharh -->
+        <div class="testimonial-card animate-on-scroll">
+            <div class="user-info">
+                <div class="user-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">DN</div>
+                <div>
+                    <h4>Dilnoza Niyozova</h4>
+                    <p>UI/UX Designer</p>
+                </div>
             </div>
-            <div class="spec-tile">
-              <div class="tile-icon">🏎</div>
-              <div class="tile-content">
-                <span class="label">Dvigatel</span>
-                <span id="carEngine" class="value">---</span>
-              </div>
-            </div>
-            <div class="spec-tile">
-              <div class="tile-icon">🔥</div>
-              <div class="tile-content">
-                <span class="label">Maksimal Tezlik</span>
-                <span id="carSpeed" class="value">---</span>
-              </div>
-            </div>
-            <div class="spec-tile">
-              <div class="tile-icon">⚙️</div>
-              <div class="tile-content">
-                <span class="label">Quvvati</span>
-                <span id="carPower" class="value">---</span>
-              </div>
-            </div>
-            <div class="spec-tile">
-              <div class="tile-icon">⏱️</div>
-              <div class="tile-content">
-                <span class="label">Tezlashuv (0-100)</span>
-                <span id="carAccel" class="value">---</span>
-              </div>
-            </div>
-            <div class="spec-tile">
-              <div class="tile-icon">🕹</div>
-              <div class="tile-content">
-                <span class="label">Uzatmalar Qutisi</span>
-                <span id="carTransmission" class="value">---</span>
-              </div>
-            </div>
-          </div>
- <button class="vip-buy-btn" onclick="alert('Buyurtmangiz qabul qilindi')">
-            <span class="btn-text">EKSKLUSIV BUYURTMA</span>
-          </button>
-          <div id="js-wrapper" class="card-container"></div>
+            <p class="comment">"Dizaynerlar uchun juda ko'p qiziqarli takliflar bor ekan. Saytning dizayni juda qimmat va zamonaviy ko'rinadi."</p>
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
         </div>
-      </div>
 
+        <!-- 3-sharh (Marketing) -->
+        <div class="testimonial-card animate-on-scroll">
+            <div class="user-info">
+                <div class="user-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">JM</div>
+                <div>
+                    <h4>Jasurbek Mahmudov</h4>
+                    <p>SMM & Marketing Mutaxassisi</p>
+                </div>
+            </div>
+            <p class="comment">"Marketing yo'nalishi bo'yicha mos vazifani qidirayotgan edim. Ushbu portal orqali qisqa fursatda o'zimga mos ish topdim."</p>
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        </div>
+
+        <!-- 4-sharh (Moliya) -->
+        <div class="testimonial-card animate-on-scroll">
+            <div class="user-info">
+                <div class="user-avatar" style="background: linear-gradient(135deg, #ec4899, #db2777);">MK</div>
+                <div>
+                    <h4>Madina Karimova</h4>
+                    <p>Moliya Analitiki</p>
+                </div>
+            </div>
+            <p class="comment">"Moliya sohasidagi vakansiyalar juda tartibli va aniq joylashtirilgan ekan. Qidirish jarayoni juda oson kechdi."</p>
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        </div>
     </div>
-  </div>
- 
+</section>
+    
+    <section class="container section animate-on-scroll" id="bizHaqimizda" style="margin-top: 60px; margin-bottom: 60px;">
+    <div class="section-header">
+        <div>
+            <h2>Biz Haqimizda</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Ish Top Pro — sizning ishonchli karyera va ish qidirish hamkoringiz</p>
+        </div>
+    </div>
+    
+    <div class="jobs-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px;">
+        <!-- 1-blok -->
+        <div class="job-card" style="padding: 25px;">
+            <h3 style="color: #3b82f6; margin-bottom: 12px; font-size: 18px;">🎯 Bizning Maqsad</h3>
+            <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                O'zbekistonda mutaxassislar va yetakchi kompaniyalarni tez hamda qulay tarzda bog'lovchi zamonaviy ekotizim yaratish.
+            </p>
+        </div>
 
-    
-    
-<div id="compareModal" class="vip-modal-overlay">
-  <div class="vip-modal-content" style="max-width: 900px; background: #0f0f13; border: 1px solid var(--gold);">
-    <button class="vip-close-btn" onclick="closeCompareModal()">&times;</button>
-    <div style="padding: 40px;">
-      <h2 style="font-size: 28px; margin-bottom: 20px; color: var(--gold);">Avtomobillarni Solishtirish</h2>
-      <div id="compareGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <!-- 2-blok -->
+        <div class="job-card" style="padding: 25px;">
+            <h3 style="color: #06b6d4; margin-bottom: 12px; font-size: 18px;">⚡ Tezkor va Qulay</h3>
+            <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                Ortiqcha qog'ozbozlik va vaqt sarfisiz, bir necha qadamda o'zingizga mos bo'sh ish o'rnini toping.
+            </p>
+        </div>
+
+        <!-- 3-blok -->
+        <div class="job-card" style="padding: 25px;">
+            <h3 style="color: #10b981; margin-bottom: 12px; font-size: 18px;">🛡️️ Ishonchli E'lonlar</h3>
+            <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                Platformadagi barcha e'lonlar va ish beruvchilar xavfsizlik va aniqlik bo'yicha nazoratdan o'tadi.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="container footer-grid">
+        <!-- 1-ustun: Logo va qisqacha ma'lumot -->
+        <div class="footer-col">
+            <h3>Ish Top Pro 🔵</h3>
+            <p style="color: #94a3b8; font-size: 14px; margin-top: 10px;">
+                O'zbekistondagi eng ilg'or neon-stilidagi ish qidirish va karyera platformasi. O'zingizga mos ishni toping yoki e'lon bering.
+            </p>
+        </div>
+
+        <!-- 2-ustun: Tezkor havolalar -->
+        <div class="footer-col">
+            <h4>Tezkor havolalar</h4>
+            <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                <li><a href="#boshsahifa" style="color: #94a3b8; text-decoration: none;">Bosh sahifa</a></li>
+                <li><a href="#vakansiyalar" style="color: #94a3b8; text-decoration: none;">Vakansiyalar</a></li>
+                <li><a href="#kompaniyalar" style="color: #94a3b8; text-decoration: none;">Kompaniyalar</a></li>
+                <li><a href="#sharhlar" style="color: #94a3b8; text-decoration: none;">Sharhlar</a></li>
+            </ul>
+        </div>
+
+        <!-- 3-ustun: Sohalar -->
+        <div class="footer-col">
+            <h4>Sohalar</h4>
+            <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                <li><a href="#" style="color: #94a3b8; text-decoration: none;">Dasturlash va IT</a></li>
+                <li><a href="#" style="color: #94a3b8; text-decoration: none;">UI/UX va Dizayn</a></li>
+                <li><a href="#" style="color: #94a3b8; text-decoration: none;">Marketing & SMM</a></li>
+                <li><a href="#" style="color: #94a3b8; text-decoration: none;">Moliya va Analitika</a></li>
+            </ul>
+        </div>
+
        
-      </div>
-    </div>
-  </div>
-</div>
-<section class="range-calc-section">
-  <div class="calc-card">
-    <div class="calc-header">
-      <h2>🔋 Smart Range & Power Calculator</h2>
-      <p>Haydash rejimingizga qarab batareya masofasini real vaqtda hisoblang</p>
-    </div>
-
-    <div class="calc-body">
-      
-      <div class="slider-group">
-        <div class="slider-label">
-          <span>O'rtacha Tezlik:</span>
-          <strong id="speedValue">90 km/h</strong>
+        <div class="footer-col">
+            <h4>Aloqa</h4>
+            <p style="color: #94a3b8; font-size: 14px; margin-top: 10px;">📧 support@ishtop.uz</p>
+            <p style="color: #94a3b8; font-size: 14px;">📞 +998 71 123-45-67</p>
+            <p style="color: #94a3b8; font-size: 14px;">📍 Toshkent shahri, O'zbekiston</p>
         </div>
-        <input type="range" id="speedInput" min="50" max="200" value="90" oninput="calculateRange()">
-      </div>
-
-     
-      <div class="mode-buttons">
-        <button class="mode-btn active" data-mode="eco" onclick="setDriveMode(this, 'eco')">🌱 Eco Mode</button>
-        <button class="mode-btn" data-mode="comfort" onclick="setDriveMode(this, 'comfort')">🚘 Comfort</button>
-        <button class="mode-btn" data-mode="sport" onclick="setDriveMode(this, 'sport')">⚡ Sport+</button>
-      </div>
-
-      
-      <div class="range-result-display">
-        <span class="range-label">Tahminiy Yurish Masofasi:</span>
-        <div class="range-number"><span id="rangeKm">580</span> <small>KM</small></div>
-        <div class="battery-bar-container">
-          <div class="battery-bar" id="batteryBar" style="width: 85%;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="quiz-section">
-  <div class="quiz-card">
-    <div id="quizStep">
-      <div class="quiz-progress-wrapper">
-        <span id="quizStepText" class="step-counter">1/5</span>
-        <div class="quiz-progress"><div class="progress-bar" id="progressBar"></div></div>
-      </div>
-      <h3 id="quizQuestion" class="quiz-title">Yuklanmoqda...</h3>
-      <div id="quizOptions" class="options-grid"></div>
     </div>
 
-    <!-- Natija ekrani -->
-    <div id="quizResult" class="result-box" style="display: none;">
-      <span class="result-badge">⚡ Sizning xarakteringizga mos texnika:</span>
-      <h2 id="resultCarName">---</h2>
-      <p id="resultCarDesc">---</p>
-      <button class="btn-reset" onclick="resetQuiz()">Qayta topshirish 🔄</button>
+    <!-- Pastkicopyright qismi -->
+    <div style="text-align: center; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px;">
+        <p style="color: #64748b; font-size: 14px;">&copy; 2026 Ish Top Pro. Barcha huquqlar himoyalangan.</p>
     </div>
-  </div>
-</section>
-
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-brand">
-      <div class="footer-logo">GARAGE VIP</div>
-      <p>O'zbekistondagi eng eksklyuziv hamda zamonaviy avtomobillar katalogi. Siz uchun xavfsizlik va hashamat uyg'unligi.</p>
-      <div class="footer-socials">
-        <a href="#" class="social-btn">IG</a>
-        <a href="#" class="social-btn">TG</a>
-        <a href="#" class="social-btn">YT</a>
-        <a href="#" class="social-btn">FB</a>
-      </div>
-    </div>
-
-    <div>
-      <h4 class="footer-title">Katalog</h4>
-      <ul class="footer-links">
-        <li><a href="#">Giperkarlar</a></li>
-        <li><a href="#">Elektromobillar</a></li>
-        <li><a href="#">Biznes Klass</a></li>
-        <li><a href="#">Krossoverlar</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="footer-title">Kompaniya</h4>
-      <ul class="footer-links">
-        <li><a href="#">Biz haqimizda</a></li>
-        <li><a href="#">Xizmatlar</a></li>
-        <li><a href="#">VIP Garaj</a></li>
-        <li><a href="#">Aloqa</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="footer-title">Yangiliklar</h4>
-      <p style="color: var(--muted); font-size: 13px; margin-bottom: 10px;">Yangi mashinalar kelishi bilan xabardor bo'ling:</p>
-      <div class="newsletter-box">
-        <input type="email" class="newsletter-input" placeholder="Emailingizni kiriting...">
-        <button class="newsletter-btn">OBUNA</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 Garage VIP. Barcha huquqlarhimoyalangan.</p>
-    <div class="footer-bottom-links">
-      <a href="#">Muxfiylik Siyosati</a>
-      <a href="#">Foydalanish Qoidalari</a>
-    </div>
-  </div>
 </footer>
 
-  <script src="main.js"></script>
+    <!-- Modallar -->
+    <div class="modal" id="batafsilModal">
+        <div class="modal-content">
+            <span class="close-btn" id="batafsilYopish">&times;</span>
+            <h2 id="batafsilSarlavha">Vakansiya nomi</h2>
+            <p id="batafsilKompaniya" class="modal-subtitle">Kompaniya nomi</p>
+            <div class="batafsil-info-box" style="margin-bottom: 15px; color: var(--text-muted); font-size: 14px; display: flex; flex-direction: column; gap: 8px;">
+                <p><strong>Kategoriya:</strong> <span id="batafsilKat">-</span></p>
+                <p><strong>Joylashuv:</strong> <span id="batafsilJoy">-</span></p>
+                <p><strong>Ish turi:</strong> <span id="batafsilTur">-</span></p>
+                <p><strong>Maosh:</strong> <span id="batafsilMaosh" style="color: var(--accent);">-</span></p>
+            </div>
+            <button class="btn-primary full-width" id="modalArizaOchishBtn">Ariza topshirish</button>
+        </div>
+    </div>
+
+    <div class="modal" id="arizaModal">
+        <div class="modal-content">
+            <span class="close-btn" id="arizaYopish">&times;</span>
+            <h2>Vakansiyaga ariza topshirish</h2>
+            <p id="modalVakansiyaNomi" class="modal-subtitle">Frontend Dasturchi</p>
+            <form id="arizaForma">
+                <div class="form-group">
+                    <label>F.I.O. (Ism Familiya)</label>
+                    <input type="text" id="nomzodIsm" required placeholder="Azizbek Karimov">
+ </div>
+                <div class="form-group">
+                    <label>Telefon raqam</label>
+                    <input type="tel" id="nomzodTelefon" required placeholder="+998 90 123 45 67">
+                </div>
+                <div class="form-group">
+                    <label>Rezyume / GitHub havolasi</label>
+                    <input type="url" id="nomzodRezyume" required placeholder="https://github.com/username">
+                </div>
+                <button type="submit" class="btn-primary full-width">Arizani yuborish</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="elonModal">
+        <div class="modal-content">
+            <span class="close-btn" id="elonYopish">&times;</span>
+            <h2>Yangi ish o'rni joylash</h2>
+            <form id="elonForma">
+                <div class="form-group">
+                    <label>Kasb nomi</label>
+                    <input type="text" id="elonSarlavha" required placeholder="Senior Python Developer">
+                </div>
+                <div class="form-group">
+                    <label>Kompaniya nomi</label>
+                    <input type="text" id="elonKompaniya" required placeholder="UzTech Systems">
+                </div>
+                <div class="form-group">
+                    <label>Kategoriya</label>
+                    <select id="elonKategoriya" required class="filter-select full-width">
+                        <option value="IT">Dasturlash va IT</option>
+                        <option value="Dizayn">UI/UX va Dizayn</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Moliya">Moliya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Manzil</label>
+                    <input type="text" id="elonManzil" required placeholder="Toshkent (Masofaviy)">
+                </div>
+                <div class="form-group">
+                    <label>Ish turi</label>
+                    <select id="elonTur" required class="filter-select full-width">
+                        <option value="To'liq stavka">To'liq stavka</option>
+                        <option value="Yarim stavka">Yarim stavka</option>
+                        <option value="Kontrakt">Kontrakt</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Oylik maosh</label>
+                    <input type="text" id="elonMaosh" required placeholder="$2,000 - $3,000">
+                </div>
+                <button type="submit" class="btn-primary full-width">E'lonni chop etish</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
